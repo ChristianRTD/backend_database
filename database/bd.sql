@@ -5,3 +5,4 @@ CREATE TABLE product(
     price DECIMAL(10,2),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+

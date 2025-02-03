@@ -1,15 +1,36 @@
 import { NextResponse } from 'next/server';
+import {conn} from '@/libs/mysql'
 
 export  function GET() {
-  return NextResponse.json("OBTENIENDO PRODUCTOS");
+  return NextResponse.json("LISTANDO PRODUCTOS");
 }
 
-export   function DELETE() {
-    return NextResponse.json("ELIMINANDO PRODUCTOS");
+export async function POST(request) {
+  try {
+    const {name, description, price}  = await request.json()
+  const result = await conn.query('INSERT INTO product SET ?', {
+    name,
+    description,
+    price
+  });
+
+  
+  return NextResponse.json({
+    name,
+    description,
+    price,
+    id: result.insertId,
+  });
+  } catch (error) {
+      console.log(error);
+      return NextResponse.json(
+        {
+          message: error.message
+        },
+        {
+          status:500,
+        }
+      )
   }
 
-
-
-  export   function PUT() {
-    return NextResponse.json("ACTUALIZANDO PRODUCTOS");
-  }
+}

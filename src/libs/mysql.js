@@ -6,7 +6,7 @@ export const conn = mysql({
         user: 'Global',
         password: 'globaltune202',
         port: 3306,
-        database: 'SQL-Global'
-        }
+        database: 'users'
+    }
     
-});
+})
