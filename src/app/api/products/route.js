@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
 import {conn} from '@/libs/mysql'
-import { Result } from 'postcss';
 
 export async function GET() {
   
 try {
   const result = await conn.query('SELECT * FROM product')
-  return NextResponse.json(results);
+  return NextResponse.json(result);
 } catch (error) {
   console.log(error);
       return NextResponse.json(
