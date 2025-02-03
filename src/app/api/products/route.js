@@ -1,8 +1,24 @@
 import { NextResponse } from 'next/server';
 import {conn} from '@/libs/mysql'
+import { Result } from 'postcss';
 
-export  function GET() {
-  return NextResponse.json("LISTANDO PRODUCTOS");
+export async function GET() {
+  
+try {
+  const result = await conn.query('SELECT * FROM product')
+  return NextResponse.json(results);
+} catch (error) {
+  console.log(error);
+      return NextResponse.json(
+        {
+          message: error.message
+        },
+        {
+          status:500,
+        }
+      )
+}
+
 }
 
 export async function POST(request) {
