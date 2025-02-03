@@ -9,4 +9,4 @@ export const conn = mysql({
         database: 'SQL-Global'
         }
     
-})
+});
