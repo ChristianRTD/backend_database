@@ -4,7 +4,10 @@ function AboutPage() {
         <h1 className="text-2xl font-bold my-4">About</h1>
   
         <p className="text-gray-30">
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minima ratione, voluptatem laboriosam porro saepe eos a ad, tempore mollitia ex quo cum labore, exercitationem molestias quia distinctio. Omnis, tenetur. 
+         
+        🎸 Global Tune - E-Commerce Platform
+
+        Welcome to Global Tune, an international e-commerce platform dedicated to providing musical instruments and accessories to musicians worldwide. This project is a robust, scalable, and secure solution built with cutting-edge technologies and best practices.
 
 
         </p>
