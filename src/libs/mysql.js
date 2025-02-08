@@ -1,12 +1,11 @@
-import mysql from 'serverless-mysql'
+import mysql from 'serverless-mysql';
 
 export const conn = mysql({
     config: {
-        host: 'sql-global.c5eoehvxjn2a.us-east-1.rds.amazonaws.com',
-        user: 'Global',
-        password: 'globaltune202',
-        port: 3306,
-        database: 'users'
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        port: parseInt(process.env.DB_PORT, 10),
+        database: process.env.DB_NAME
     }
-    
-})
+});
