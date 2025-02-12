@@ -58,7 +58,7 @@ export async function DELETE(req, { params }) {
   try {
     const { id } = params;
 
-    // Verificar si el producto existe antes de eliminarlo
+    // Check if the product exists before deleting it.
     const checkProduct = await conn.query("SELECT * FROM product WHERE id = ?", [id]);
 
     if (checkProduct.length === 0) {
@@ -68,7 +68,7 @@ export async function DELETE(req, { params }) {
       );
     }
 
-    // Si existe, eliminar el producto
+    // If it exists, delete the product
     await conn.query("DELETE FROM product WHERE id = ?", [id]);
 
     return NextResponse.json(
