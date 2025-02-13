@@ -21,16 +21,18 @@ export async function GET() {
 // Create a new user
 export async function POST(request) {
   try {
-    const { name, email, password } = await request.json();
+    const { name, email, password, role } = await request.json();
     const result = await conn.query("INSERT INTO users SET ?", {
       name,
       email,
       password,
+      role,
     });
 
     return NextResponse.json({
       name,
       email,
+      role,
       id: result.insertId,
     });
   } catch (error) {
